@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+<title>welcome to WKUYKT</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>-->
+<link href="lib/bootstrap.min.css" rel="stylesheet">
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<script src="lib/jquery.min.js"></script>
+ 
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="lib/bootstrap.min.js"></script>
+<!--导入Vue-->
+<script src="lib/vue.min.js"></script>
+
+<script>
+window.onload=function(){
+
+let vm=new Vue({
+	el:'.container',
+	data:{
+		typeSearchText:'',
+		idSearchText:''
+	},
+	methods:{
+		typeSearch(){
+			alert('根据课程类型搜索,typeSearchText:'+this.typeSearchText);
+		},
+		idSearch(){
+			alert('根据课程ID搜索,idSearchText:'+this.idSearchText);
+		}
+	}
+});
+
+};
+</script>
+</head>
+<body>
+<!--上方栏-->
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#example-navbar-collapse">
+				<span class="sr-only">切换导航</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">WKUYKT</a>
+		</div>
+		<div class="collapse navbar-collapse" id="example-navbar-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="">Video</a></li>
+
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container">
+<div class="row">
+	<div class="col-sm-2">
+		<!--导航栏-->
+		<div class="list-group">
+			<a href="" class="list-group-item active">
+				<h4 class="list-group-item-heading">
+					Mangement Option
+				</h4>
+			</a>
+			<a href="" class="list-group-item">
+				<h4 class="list-group-item-heading">
+					Video Mangement
+				</h4>
+			</a>
+			<a href="" class="list-group-item">
+				<h4 class="list-group-item-heading">
+					Comment Mangement
+				</h4>
+			</a>
+		</div>
+	</div>
+	<div class="col-sm-10">
+		<!--内容-->
+		<div class="jumbotron">
+			<h2 class="text-center">Course Searching</h2><br/>
+			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h2 class="panel-title">Searching by course type</h2>
+						</div>
+						<div class="panel-body">
+							<form role="form">
+							<div class="row">
+								<div class="col-sm-10">
+									<div class="form-group">
+										<label for="CourseName">Choose the course type</label>
+										<select required id="CourseName" class="form-control" v-model="typeSearchText" title="course type">
+											<option>BIO</option>
+											<option>CPS</option>
+											<option>ECO</option>
+											<option>HIST</option>
+											<option>MATH</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-sm-2">
+									<div class="form-group">
+										<label for="typeSearchBtn">&nbsp </label>
+										<input type="button" id="typeSearchBtn" class="btn btn-info" value="搜索" v-on:click="typeSearch">
+									</div>
+								</div>
+							</div>
+							</form>
+						</div>
+						<table class="table">
+							<th>Course Name</th><th>url</th>
+							<tr><td>Course1</td><td><button class="btn btn-default">start now!</button></td></tr>
+							<tr><td>Course1</td><td><a>start now!</a></td></tr>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h2 class="panel-title">Searching by course id</h2>
+						</div>
+						<div class="panel-body">
+							<form role="form">
+							<div class="row">
+								<div class="col-sm-10">
+									<div class="form-group">
+										<label for="CourseID">Enter the course id</label>
+										<div class="col-sm-12">
+											<input type="text" class="form-control" id="CourseID" v-model="idSearchText" placeholder="Enter the course id here">
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-2">
+									<div class="form-group">
+										<label for="idSearchBtn">&nbsp </label>
+										<input type="button" id="idSearchBtn" class="btn btn-info" value="搜索" v-on:click="idSearch">
+									</div>
+								</div>
+							</div>
+							</form>
+						</div>
+						<table class="table">
+							<th>Course Name</th><th>url</th>
+							<tr><td>Course1</td><td><button class="btn btn-success">start now!</button></td></tr>
+							<tr><td>Course1</td><td><button class="btn btn-info">start now!</button></td></tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+	
+</div>
+<nav class="navbar navbar-default navbar-static-bottom" role="navigation">
+    <center>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    Rules of WKUYKT
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    picture
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    copy right etc...
+                </div>
+            </div>
+        </div>
+    </center>
+</nav>
+    
+
+</body>
+</html>
