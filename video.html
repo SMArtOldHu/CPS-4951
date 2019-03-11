@@ -11,6 +11,15 @@
  
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!--导入Vue-->
+<script src="lib/vue.min.js"></script>
+<!--导入我的config-->
+<script src="lib/myConfig.js"></script>
+<!--导入我的ajax-->
+<script src="lib/ajax.js"></script>
+
+
+
 <style>
 
 .player {
@@ -28,6 +37,24 @@ video {
 </style>
 <script>
 window.onload=function(){
+
+let myConfig=new Config();
+let vm=new Vue({
+	el:'.container',
+	data:{
+		/*typeSearchText:'',
+		idSearchText:''*/
+	},
+	methods:{
+		/*typeSearch(){
+			alert('根据课程类型搜索,typeSearchText:'+this.typeSearchText);
+		},
+		idSearch(){
+			alert('根据课程ID搜索,idSearchText:'+this.idSearchText);
+		}*/
+	}
+});
+
 var video = document.querySelector('video');
 var isPlay = document.querySelector('.switch');
 var expand = document.querySelector('.expand');

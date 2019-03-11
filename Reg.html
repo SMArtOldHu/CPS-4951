@@ -13,10 +13,14 @@
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--导入Vue-->
 <script src="lib/vue.min.js"></script>
+<!--导入我的config-->
+<script src="lib/myConfig.js"></script>
+<!--导入我的ajax-->
+<script src="lib/ajax.js"></script>
 
 <script>
 window.onload=function(){
-
+let myConfig=new Config();
 let vm=new Vue({
 	el:'.container',
 	data:{
@@ -31,10 +35,24 @@ let vm=new Vue({
 		studentReg(){
 			alert('studentReg,StID:'+this.StID+';StPassword:'+this.StPassword+
 				';StConfPassword:'+this.StConfPassword);
+			MyAjax(myConfig.apiAddress+myConfig.stReg+new Date().getTime(),function(str)
+			{//通过改url实现前端的阻止缓存
+				alert(str);
+			},function()
+			{
+				alert('失败');
+			});
 		},
 		instructorReg(){
 			alert('instructorReg,InstID:'+this.InstID+';InstPassword:'+this.InstPassword+
 				';InstConfPassword:'+this.InstConfPassword);
+			MyAjax(myConfig.apiAddress+myConfig.instReg+new Date().getTime(),function(str)
+			{//通过改url实现前端的阻止缓存
+				alert(str);
+			},function()
+			{
+				alert('失败');
+			});
 		}
 	}
 });

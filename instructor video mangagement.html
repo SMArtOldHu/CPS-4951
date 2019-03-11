@@ -13,9 +13,14 @@
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--导入Vue-->
 <script src="lib/vue.min.js"></script>
+<!--导入我的config-->
+<script src="lib/myConfig.js"></script>
+<!--导入我的ajax-->
+<script src="lib/ajax.js"></script>
+
 <script>
 window.onload=function(){
-
+let myConfig=new Config();
 let vm=new Vue({
 	el:'.container',
 	data:{

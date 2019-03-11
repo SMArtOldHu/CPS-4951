@@ -3,7 +3,7 @@
 <html>
 <head>
 <title>welcome to WKUYKT</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" charset="utf-8" content="width=device-width, initial-scale=1.0">
 <!--<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>-->
 <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
@@ -13,24 +13,50 @@
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!--导入Vue-->
 <script src="lib/vue.min.js"></script>
+<!--导入我的config-->
+<script src="lib/myConfig.js"></script>
+<!--导入我的ajax-->
+<script src="lib/ajax.js"></script>
 
 <script>
 window.onload=function(){
-
+let myConfig=new Config();
 let vm=new Vue({
 	el:'.container',
 	data:{
 		StID:'',
 		StPassword:'',
 		InstID:'',
-		InstPassword:''
+		InstPassword:'',
+		result:''
 	},
 	methods:{
 		studentLogin(){
+			
 			alert('studentLogin,StID:'+this.StID+';StPassword:'+this.StPassword);
+			let input={
+				server_address:myConfig.apiAddress,
+				api_address:myConfig.stLogin,
+				data:JSON.stringify({student_id:this.StID,password:this.StPassword}),
+				}
+			console.log(JSON.stringify(input));
+			MyAjax(input,function(data)
+			{//通过改url实现前端的阻止缓存
+				alert(data);
+			});
 		},
 		instructorLogin(){
 			alert('instructorLogin,InstID:'+this.InstID+';InstPassword:'+this.InstPassword);
+			let input={
+				server_address:myConfig.apiAddress,
+				api_address:myConfig.instLogin,
+				data:JSON.stringify({student_id:this.InstID,password:this.InstPassword}),
+				}
+			
+			MyAjax(input,function(data)
+			{//通过改url实现前端的阻止缓存
+				alert(data);
+			});
 		}
 	}
 });
